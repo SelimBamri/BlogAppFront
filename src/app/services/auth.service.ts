@@ -10,7 +10,7 @@ import { User } from '../models/user';
 })
 export class AuthService {
   private readonly TOKEN_KEY = 'auth_token';
-  private readonly API_URL = 'http://localhost:https://localhost:7063/api';
+  private readonly API_URL = 'https://localhost:7063/api';
   authStateSubject = new BehaviorSubject<boolean>(this.isAuthenticated());
   authState$ = this.authStateSubject.asObservable();
   private currentUserSubject = new BehaviorSubject<User | null>(null);
