@@ -32,6 +32,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       this.authService.authState$.subscribe((isLoggedIn) => {
         this.isLoggedIn = isLoggedIn;
         if (isLoggedIn) {
+          console.log('Holaaaaa' + isLoggedIn);
           this.subscriptions.add(
             this.userService.getMyAccount().subscribe((user) => {
               this.user = user;

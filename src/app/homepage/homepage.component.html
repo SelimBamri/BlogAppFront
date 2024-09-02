@@ -1,0 +1,32 @@
+<div style="margin-top: 4rem; text-align: center">
+  <h1 class="title">Welcome to our Blogging App</h1>
+  <p style="margin-top: 4rem; text-align: left">
+    Our blogging app is designed with simplicity in mind, offering a clean and
+    intuitive interface that lets you focus on what matters most—your writing.
+  </p>
+  <p style="margin-top: 1.15rem; text-align: left">
+    Whether you're a seasoned blogger or just starting out, you can effortlessly
+    create, edit, and publish your posts without any distractions.
+  </p>
+  <p style="margin-top: 1.15rem; text-align: left">
+    With minimalistic features and easy navigation, our app makes it a breeze to
+    share your thoughts and stories with the world.
+  </p>
+  @if (authenticated) {
+  <div style="margin-top: 4rem">
+    <a (click)="redirectToLists()" class="btn btn-lg abtn"> My Blogs</a>
+  </div>
+  } @else {
+  <div style="margin-top: 4rem">
+    <a
+      (click)="redirectToRegister()"
+      class="btn btn-lg hbtn"
+      style="margin-right: 3rem"
+    >
+      Sign up</a
+    >
+    <a (click)="redirectToLogin()" class="btn btn-lg hbtn"> Sign in</a>
+  </div>
+
+  }
+</div>
