@@ -1,1 +1,10 @@
-<app-header />
+<div class="d-flex flex-column min-vh-100">
+  <header style="margin-bottom: 3rem">
+    <app-header />
+  </header>
+
+  <main class="container flex-grow-1">
+    <router-outlet />
+  </main>
+  <app-footer style="margin-top: 3rem" />
+</div>

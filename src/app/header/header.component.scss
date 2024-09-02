@@ -1,0 +1,46 @@
+.navbar-custom {
+  background-color: #fff5e1;
+}
+.navbar-custom,
+.navbar-custom .nav-link {
+  color: #ff6969;
+  font-size: 1rem;
+}
+
+.navbar-brand {
+  color: #ff6969;
+  font-size: 1.6rem;
+  margin-right: 3rem;
+  font-weight: bold;
+}
+
+.active {
+  font-weight: 500;
+}
+
+.uname {
+  color: white;
+  font-size: 2.3rem;
+  a {
+    font-size: 2.3rem;
+  }
+}
+
+.hbtn {
+  background-color: #ff6969;
+  color: #fff5e1;
+}
+
+@media (min-width: 768px) {
+  .dropdown-menu {
+    right: 0;
+    left: auto;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .dropdown-menu {
+    right: auto;
+    left: 0;
+  }
+}

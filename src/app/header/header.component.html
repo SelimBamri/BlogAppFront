@@ -1,0 +1,93 @@
+<nav class="navbar navbar-expand-lg navbar-custom">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Blogging App</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarScroll"
+      aria-controls="navbarScroll"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <ul
+        class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
+        style="--bs-scroll-height: 100px"
+      >
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink=""
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            aria-current="page"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item" *ngIf="user">
+          <a
+            class="nav-link"
+            routerLink="lists"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            aria-current="page"
+            >My lists</a
+          >
+        </li>
+      </ul>
+      <div class="d-flex nav-item dropdown" *ngIf="user; else notAuth">
+        <a
+          class="nav-link qwitcher-grypen-bold uname d-flex align-items-center"
+          href="#"
+          id="navbarDropdown"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <img
+            [src]="
+              user.profilePhoto
+                ? user.profilePhoto
+                : '../../assets/images/anonymous.png'
+            "
+            width="40rem"
+            height="40rem"
+            class="rounded-circle me-2"
+            alt="User Profile"
+          />
+          {{ user.userName }}
+        </a>
+
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li>
+            <a class="dropdown-item" (click)="redirectToMyAccount()"
+              >Account info</a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item" (click)="redirectToEditMyAccount()"
+              >Update my account</a
+            >
+          </li>
+          <li><hr class="dropdown-divider" /></li>
+          <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
+        </ul>
+      </div>
+      <ng-template #notAuth>
+        <div class="d-flex">
+          <a
+            class="btn hbtn"
+            (click)="redirectToLogin()"
+            style="margin-right: 0.5rem"
+          >
+            Sign in</a
+          >
+          <a (click)="redirectToRegister()" class="btn hbtn"> Sign up</a>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</nav>
