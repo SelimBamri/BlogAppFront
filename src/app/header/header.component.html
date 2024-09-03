@@ -40,7 +40,7 @@
       </ul>
       <div class="d-flex nav-item dropdown" *ngIf="user; else notAuth">
         <a
-          class="nav-link qwitcher-grypen-bold uname d-flex align-items-center"
+          class="nav-link d-flex align-items-center"
           href="#"
           id="navbarDropdown"
           role="button"
@@ -50,15 +50,15 @@
           <img
             [src]="
               user.profilePhoto
-                ? user.profilePhoto
-                : '../../assets/images/anonymous.png'
+                ? 'data:image/jpeg;base64,' + user.profilePhoto
+                : '../assets/images/anonymous.png'
             "
             width="40rem"
             height="40rem"
             class="rounded-circle me-2"
             alt="User Profile"
           />
-          {{ user.userName }}
+          <span class="uname">{{ user.userName }}</span>
         </a>
 
         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">

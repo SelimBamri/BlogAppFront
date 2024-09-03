@@ -53,7 +53,21 @@ export class AuthService {
   }
 
   isAuthenticated(): boolean {
-    return !!this.getToken();
+    const token = this.getToken();
+    if (!token) {
+      return false;
+    }
+    const decodedToken: any = this.getDecodedToken();
+    if (!decodedToken || !decodedToken.exp) {
+      return false;
+    }
+    const currentTime = Math.floor(Date.now() / 1000);
+    if (decodedToken.exp < currentTime) {
+      this.removeToken();
+      this.authStateSubject.next(false);
+      return false;
+    }
+    return true;
   }
 
   getDecodedToken(): any {
