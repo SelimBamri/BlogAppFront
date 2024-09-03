@@ -45,6 +45,7 @@ export class UserService {
   getAccountById(id: string): Observable<User> {
     return this.http.get<any>(`${this.API_URL}/accounts/${id}`).pipe(
       map((char: any) => ({
+        email: null,
         firstName: char.firstName,
         lastName: char.lastName,
         userName: char.userName,
