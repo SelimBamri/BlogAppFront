@@ -111,18 +111,20 @@ export class UpdateAccountComponent {
   }
 
   OnDeleteAccount() {
-    this.authService.deleteMyAccount().subscribe({
-      next: (response) => {
-        console.log('Account successfully deleted:', response);
-        this.authService.logout();
-        this.router.navigate(['/']);
-        this.showSnackBar('Account deleted successfully.');
-      },
-      error: (error) => {
-        console.error('Error deleting account:', error);
-        this.showSnackBar('Failed to delete account: ' + error);
-      },
-    });
+    if (confirm('Are you sure you want to delete your account?')) {
+      this.authService.deleteMyAccount().subscribe({
+        next: (response) => {
+          console.log('Account successfully deleted:', response);
+          this.authService.logout();
+          this.router.navigate(['/']);
+          this.showSnackBar('Account deleted successfully.');
+        },
+        error: (error) => {
+          console.error('Error deleting account:', error);
+          this.showSnackBar('Failed to delete account: ' + error);
+        },
+      });
+    }
   }
 
   cancelPhoto() {

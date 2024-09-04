@@ -27,16 +27,6 @@
             >Home</a
           >
         </li>
-        <li class="nav-item" *ngIf="user">
-          <a
-            class="nav-link"
-            routerLink="lists"
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: true }"
-            aria-current="page"
-            >My lists</a
-          >
-        </li>
       </ul>
       <div class="d-flex nav-item dropdown" *ngIf="user; else notAuth">
         <a
@@ -70,6 +60,11 @@
           <li>
             <a class="dropdown-item" (click)="redirectToEditMyAccount()"
               >Update my account</a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item" (click)="redirectToEditMyPassword()"
+              >Update my password</a
             >
           </li>
           <li><hr class="dropdown-divider" /></li>
