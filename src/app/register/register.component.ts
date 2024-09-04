@@ -54,7 +54,6 @@ export class RegisterComponent {
       this.showSnackBar('Passwords do not match');
       return;
     }
-    console.log(form.value.username);
     this.userService
       .signUp(
         form.value.email,
