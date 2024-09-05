@@ -7,6 +7,7 @@ import { UpdateAccountComponent } from './update-account/update-account.componen
 import { UpdatePasswordComponent } from './update-password/update-password.component';
 import { AddArticleComponent } from './add-article/add-article.component';
 import { ArticleComponent } from './article/article.component';
+import { MyArticlesComponent } from './my-articles/my-articles.component';
 
 export const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -17,4 +18,5 @@ export const routes: Routes = [
   { path: 'update-password', component: UpdatePasswordComponent },
   { path: 'new', component: AddArticleComponent },
   { path: 'article/:id', component: ArticleComponent },
+  { path: 'my-articles', component: MyArticlesComponent },
 ];

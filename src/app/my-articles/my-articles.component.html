@@ -1,0 +1,27 @@
+<div style="margin: 2rem 3rem; text-align: left">
+  <h1 class="title mb-5">My posts</h1>
+</div>
+<div class="row" *ngIf="articles$ | async as articles">
+  <app-my-article-card
+    *ngFor="let article of articles"
+    [article]="article"
+    (changed)="loadArticles(currentPage)"
+  />
+</div>
+<nav>
+  <ul class="pagination justify-content-center">
+    <li class="page-item" [class.disabled]="currentPage === 1">
+      <a class="page-link" (click)="previousPage()" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li class="page-item">
+      <a class="page-link">{{ currentPage }}</a>
+    </li>
+    <li class="page-item" [class.disabled]="currentPage === lastPage">
+      <a class="page-link" (click)="nextPage()" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>

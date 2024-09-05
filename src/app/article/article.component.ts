@@ -19,7 +19,7 @@ export class ArticleComponent implements OnInit {
     private articleService: ArticleService
   ) {}
   ngOnInit(): void {
-    this.article$ = this.articleService.getServiceById(
+    this.article$ = this.articleService.getArticleById(
       Number(this.route.snapshot.paramMap.get('id'))
     );
   }

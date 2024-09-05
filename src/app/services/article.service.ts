@@ -23,7 +23,7 @@ export class ArticleService {
     });
   }
 
-  getServiceById(id: number): Observable<Article> {
+  getArticleById(id: number): Observable<Article> {
     return this.http.get<any>(`${this.API_URL}/articles/${id}`).pipe(
       map((art: any) => ({
         id: art.id,
@@ -34,5 +34,30 @@ export class ArticleService {
         description: art.description,
       }))
     );
+  }
+
+  getMyPageInfo(): Observable<number> {
+    return this.http
+      .get<any>(`${this.API_URL}/articles/info`)
+      .pipe(map((response) => response.lastPage));
+  }
+
+  getMyArticles(page: number): Observable<Article[]> {
+    return this.http.get<any>(`${this.API_URL}/articles?page=${page}`).pipe(
+      map((r) =>
+        r.results.map((art: any) => ({
+          id: art.id,
+          content: art.content,
+          banner: art.banner,
+          created: art.created,
+          title: art.title,
+          description: art.description,
+        }))
+      )
+    );
+  }
+
+  deleteArticle(id: number): Observable<any> {
+    return this.http.delete(`${this.API_URL}/articles/${id}`);
   }
 }
