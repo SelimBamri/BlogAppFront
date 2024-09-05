@@ -1,0 +1,54 @@
+<div style="margin: 2rem 3rem; text-align: left">
+  <h1 class="title mb-5">Add a new post</h1>
+  <h2 class="lab">Post title</h2>
+  <div class="row mb-5">
+    <input class="form-control" type="text" [(ngModel)]="title" />
+  </div>
+  <h2 class="lab">Post description</h2>
+  <div class="row mb-5">
+    <textarea class="form-control" [(ngModel)]="description"></textarea>
+  </div>
+  <h2 class="lab">Post banner</h2>
+  <div class="container mb-5">
+    <div class="card">
+      <div class="card-body">
+        <div
+          (click)="fileInput.click()"
+          id="drop-area"
+          class="border rounded d-flex justify-content-center align-items-center"
+          style="height: 200px; cursor: pointer"
+        >
+          <div class="text-center">
+            <fa-icon
+              class="upload"
+              [icon]="isPhoto ? faCircleCheck : faCloudArrowUp"
+            />
+            <p class="mt-3">
+              @if (isPhoto) { {{ banner.split("\\").at(-1) }} } @else {Drag and
+              drop your image here or click to select a file.}
+            </p>
+          </div>
+        </div>
+        <input
+          (change)="onSelectFile($event)"
+          [(ngModel)]="banner"
+          type="file"
+          multiple
+          accept="image/*"
+          class="d-none"
+          #fileInput
+        />
+      </div>
+    </div>
+  </div>
+  <h2 class="lab">Post content</h2>
+  <editor
+    class="mb-5"
+    [init]="init"
+    [(ngModel)]="editorContent"
+    apiKey="fo864jk69fkjivh74ay4whrjyvc5to6majq64lzj5ncvrl0v"
+  />
+  <div class="row">
+    <button (click)="saveContent()" class="btn hbtn btn-lg">Post</button>
+  </div>
+</div>

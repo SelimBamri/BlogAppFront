@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { AccountComponent } from './account/account.component';
 import { UpdateAccountComponent } from './update-account/update-account.component';
 import { UpdatePasswordComponent } from './update-password/update-password.component';
+import { AddArticleComponent } from './add-article/add-article.component';
 
 export const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -13,4 +14,5 @@ export const routes: Routes = [
   { path: 'account', component: AccountComponent },
   { path: 'update', component: UpdateAccountComponent },
   { path: 'update-password', component: UpdatePasswordComponent },
+  { path: 'new', component: AddArticleComponent },
 ];

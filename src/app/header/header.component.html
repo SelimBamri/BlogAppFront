@@ -27,6 +27,18 @@
             >Home</a
           >
         </li>
+        @if (isLoggedIn) {
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="new"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            aria-current="page"
+            >New post</a
+          >
+        </li>
+        }
       </ul>
       <div class="d-flex nav-item dropdown" *ngIf="user; else notAuth">
         <a

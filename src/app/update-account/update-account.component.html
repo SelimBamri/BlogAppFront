@@ -17,8 +17,8 @@
             <div>
               <img
                 [src]="
-                  url == user.profilePhoto
-                    ? 'data:image/jpeg;base64,' + url
+                  user.profilePhoto && !url
+                    ? 'data:image/jpeg;base64,' + user.profilePhoto
                     : url
                     ? url
                     : '../../assets/images/anonymous.png'
