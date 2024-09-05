@@ -1,0 +1,39 @@
+.title {
+  font-size: 2rem;
+  color: #ff6969;
+  font-weight: 600;
+  margin-bottom: 3rem;
+}
+
+.hbtn {
+  background-color: #ff6969;
+  color: #fff5e1;
+}
+
+.abtn {
+  background-color: #0c1844;
+  color: #fff5e1;
+}
+
+::ng-deep p {
+  margin: 1em 0;
+  line-height: 1.5;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: 125%;
+  font-weight: 400;
+}
+
+::ng-deep h1 {
+  font-size: 2rem;
+  color: #179bae;
+  font-weight: 600;
+  margin-bottom: 3rem;
+}
+
+::ng-deep h2 {
+  font-size: 1.8rem;
+  color: #179bae;
+  font-weight: 600;
+  margin-bottom: 3rem;
+}

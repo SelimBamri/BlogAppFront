@@ -1,0 +1,17 @@
+<div class="mt-4" *ngIf="article$ | async as article">
+  <div class="text-center mb-2">
+    <h1 class="title">{{ article.title }}</h1>
+    <img
+      src="{{ 'data:image/jpeg;base64,' + article.banner }}"
+      style="max-width: 60rem"
+    />
+  </div>
+
+  <div>
+    <p style="display: inline">Created:</p>
+    <blockquote style="display: inline">
+      {{ article.created | date }}
+    </blockquote>
+  </div>
+  <div [innerHTML]="article.content"></div>
+</div>
