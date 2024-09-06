@@ -6,7 +6,6 @@ import { ArticleService } from '../services/article.service';
 import { Article } from '../models/Article';
 import { ActivatedRoute } from '@angular/router';
 import { AsyncPipe, NgIf } from '@angular/common';
-import { SafeUrl, DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-edit-article',
@@ -21,8 +20,7 @@ export class EditArticleComponent implements OnInit {
   constructor(
     private snackBar: MatSnackBar,
     private articleService: ArticleService,
-    private route: ActivatedRoute,
-    private sanitizer: DomSanitizer
+    private route: ActivatedRoute
   ) {}
   init: EditorComponent['init'] = {
     plugins: 'lists link code help wordcount',

@@ -9,16 +9,43 @@ import { AddArticleComponent } from './add-article/add-article.component';
 import { ArticleComponent } from './article/article.component';
 import { MyArticlesComponent } from './my-articles/my-articles.component';
 import { EditArticleComponent } from './edit-article/edit-article.component';
+import { authGuard } from './guards/auth.guard';
+import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 
 export const routes: Routes = [
   { path: '', component: HomepageComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'account', component: AccountComponent },
-  { path: 'update', component: UpdateAccountComponent },
-  { path: 'update-password', component: UpdatePasswordComponent },
-  { path: 'new', component: AddArticleComponent },
+  { path: 'unauthorized', component: UnauthorizedComponent },
+  {
+    path: 'account',
+    component: AccountComponent,
+    canActivate: [() => authGuard],
+  },
+  {
+    path: 'update',
+    component: UpdateAccountComponent,
+    canActivate: [() => authGuard],
+  },
+  {
+    path: 'update-password',
+    component: UpdatePasswordComponent,
+    canActivate: [() => authGuard],
+  },
+  {
+    path: 'new',
+    component: AddArticleComponent,
+    canActivate: [() => authGuard],
+  },
   { path: 'article/:id', component: ArticleComponent },
-  { path: 'edit-article/:id', component: EditArticleComponent },
-  { path: 'my-articles', component: MyArticlesComponent },
+  {
+    path: 'edit-article/:id',
+    component: EditArticleComponent,
+    canActivate: [() => authGuard],
+  },
+  {
+    path: 'my-articles',
+    component: MyArticlesComponent,
+    canActivate: [() => authGuard],
+  },
 ];
