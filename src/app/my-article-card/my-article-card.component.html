@@ -19,7 +19,11 @@
             >Created: {{ article.created | date }}</small
           >
         </p>
-        <fa-icon [icon]="faEdit" class="ed-ico" />
+        <fa-icon
+          [icon]="faEdit"
+          class="ed-ico"
+          (click)="redirectToEditArticle(article.id)"
+        />
         <fa-icon
           [icon]="faTrashCan"
           class="del-ico"

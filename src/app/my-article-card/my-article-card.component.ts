@@ -33,4 +33,7 @@ export class MyArticleCardComponent {
   redirectToArticle(id: number) {
     this.router.navigate([`/article/${id}`]);
   }
+  redirectToEditArticle(id: number) {
+    this.router.navigate([`/edit-article/${id}`]);
+  }
 }

@@ -5,19 +5,11 @@ import { Article } from '../models/Article';
 import { ArticleComponent } from '../article/article.component';
 import { MyArticleCardComponent } from '../my-article-card/my-article-card.component';
 import { AsyncPipe, NgFor, NgIf } from '@angular/common';
-import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-my-articles',
   standalone: true,
-  imports: [
-    ArticleComponent,
-    MyArticleCardComponent,
-    NgIf,
-    NgFor,
-    AsyncPipe,
-    MatPaginatorModule,
-  ],
+  imports: [ArticleComponent, MyArticleCardComponent, NgIf, NgFor, AsyncPipe],
   templateUrl: './my-articles.component.html',
   styleUrl: './my-articles.component.scss',
 })

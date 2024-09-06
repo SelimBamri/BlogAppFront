@@ -1,0 +1,40 @@
+<div style="margin: 2rem 3rem; text-align: left">
+  <h1 class="title mb-5">Edit post</h1>
+  <h2 class="lab">Post title</h2>
+  <div class="row mb-5">
+    <input class="form-control" type="text" [(ngModel)]="article.title" />
+  </div>
+  <h2 class="lab">Post description</h2>
+  <div class="row mb-5">
+    <textarea class="form-control" [(ngModel)]="article.description"></textarea>
+  </div>
+  <h2 class="lab">Post banner</h2>
+  <div class="text-center">
+    <div class="mb-3">
+      <img [src]="article.banner" style="max-width: 40rem" />
+    </div>
+    <button class="hbtn btn btn-lg mb-5" (click)="fileInput.click()">
+      Change banner
+    </button>
+    <input
+      (change)="onSelectFile($event)"
+      [(ngModel)]="url"
+      type="file"
+      multiple
+      accept="image/*"
+      class="d-none"
+      #fileInput
+    />
+  </div>
+
+  <h2 class="lab">Post content</h2>
+  <editor
+    class="mb-5"
+    [init]="init"
+    [(ngModel)]="article.content"
+    apiKey="fo864jk69fkjivh74ay4whrjyvc5to6majq64lzj5ncvrl0v"
+  />
+  <div class="row">
+    <button (click)="saveContent()" class="btn hbtn btn-lg">Edit</button>
+  </div>
+</div>

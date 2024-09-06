@@ -60,4 +60,19 @@ export class ArticleService {
   deleteArticle(id: number): Observable<any> {
     return this.http.delete(`${this.API_URL}/articles/${id}`);
   }
+
+  editArticle(
+    id: number,
+    banner: string,
+    content: string,
+    description: string,
+    title: string
+  ): Observable<any> {
+    return this.http.put(`${this.API_URL}/articles/${id}`, {
+      title,
+      description,
+      content,
+      banner,
+    });
+  }
 }
