@@ -20,32 +20,32 @@ export const routes: Routes = [
   {
     path: 'account',
     component: AccountComponent,
-    canActivate: [() => authGuard],
+    canActivate: [authGuard],
   },
   {
     path: 'update',
     component: UpdateAccountComponent,
-    canActivate: [() => authGuard],
+    canActivate: [authGuard],
   },
   {
     path: 'update-password',
     component: UpdatePasswordComponent,
-    canActivate: [() => authGuard],
+    canActivate: [authGuard],
   },
   {
     path: 'new',
     component: AddArticleComponent,
-    canActivate: [() => authGuard],
+    canActivate: [authGuard],
   },
   { path: 'article/:id', component: ArticleComponent },
   {
     path: 'edit-article/:id',
     component: EditArticleComponent,
-    canActivate: [() => authGuard],
+    canActivate: [authGuard],
   },
   {
     path: 'my-articles',
     component: MyArticlesComponent,
-    canActivate: [() => authGuard],
+    canActivate: [authGuard],
   },
 ];
